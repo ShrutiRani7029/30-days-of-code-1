@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(string num, vector<string>&ans,int index)
+{
+//BASE CONDITION :-----------
+if(index==num.size())
+{
+ans.push_back(num);
+return ans;
+}
+for(int i=index;i<num.size();i++)
+{
+
+swap(num[index],num[i]);//AT FIRST I=0,INDEX=0 SO, SWAP(NUM[0],NUM[0]) MEANS 
+solve(num,ans,index+1);
+swap(num[index],num[i]);
+}
+
+}
+
+vector<string>find(string s)
+{
+vector<string>ans;
+int index=0;
+solve(s,ans,index);
+sort(ans.begin(),ans.end());
+return ans;
+}
+
+
+int main()
+{
+string s;
+cin>>s;
+vector<string>ans=find(s);
+for(auto i:ans)
+cout<<i<<" ";
+cout<<"\n";
+}
