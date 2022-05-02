@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(int start,int length,string s, vector<string>&str)
+{
+if(start==length-1)
+{
+str.push_back(s);
+return;
+}
+//for left tree
+solve(start+1,length,s,str);
+//for right tree
+s.insert(start+1," ");
+solve(start+2,length+1,s,str);
+s.erase(start+1,1);//here s.erase(position,length)
+
+}
+
+vector<string>permutation(string s)
+{
+int start=0;
+int l=s.length();
+vector<string>ans;
+solve(start,l,s,ans);
+sort(ans.begin(),ans.end());
+return ans;
+}
+int main()
+{
+string s;
+cin>>s;
+vector<string>ans=permutation(s);
+//print-----------
+for(int i=0;i<ans.size();i++)
+{
+cout<<ans[i]<<" ";
+}
+cout<<endl;
+}
