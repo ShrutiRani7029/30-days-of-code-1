@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int fun(int a[],int n,int count)
+{
+    int l,r,x,c,d;
+            cin>>l>>r>>x;
+            for(int i=l;i<=r;i++)
+            {
+               c=a[i]^x;
+               //cout<<c<<" ";
+               d=a[i]&x;
+               //cout<<d<<endl;
+               if(c>d)
+               count++;
+               
+            }
+            return count;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,count=0;
+        cin>>n;
+        int a[n];
+        for(int i=1;i<=n;i++)
+        {
+            cin>>a[i];
+        }
+        int q;
+        cin>>q;
+        while(q--)
+        {
+            
+            cout<<fun(a,n,count)<<endl;
+            
+        }
+    }
+}
