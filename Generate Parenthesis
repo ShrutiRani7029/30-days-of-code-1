@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+void func(vector<string>&ans,int n,int open,int close,string currentstring)
+{
+if(currentstring.length()==n*2)
+{
+ans.push_back(currentstring);
+return;
+}
+///open<n
+///close<open
+if(open<n) func(ans,n,open+1,close,currentstring+"(");
+if(close<open) func(ans,n,open,close+1,currentstring+")");
+}
+vector<string>Mypermutation(int n)
+{
+vector<string>result;
+func(result,n,0,0,"");
+return result;
+}
+
+
+int main()
+{
+ int t;
+ cin>>t;
+ while(t--)
+ {
+ int n;
+ cin>>n;
+ vector<string>result=Mypermutation(n);
+ sort(result.begin(),result.end());
+ for(int i=0;i<result.size();i++)
+ cout<<result[i]<<"\n";
+ }
+}
