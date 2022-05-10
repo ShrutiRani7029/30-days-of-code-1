@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+void fun()
+{
+    ll n,x;
+        cin>>n>>x;
+        int a[n];
+
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+        int k=a[0];
+        for(int i=0;i<n;i++)
+        {
+            k=min(k,a[i]);
+        }
+
+        ll ans= x/k+(x%k!=0);
+
+        cout<< max(n,ans)<<endl;
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        fun();
+    }
+}
