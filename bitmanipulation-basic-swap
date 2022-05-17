@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+// You have to swap two number without using third variable.
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    cout << a << " " << b;
+}
