@@ -1,0 +1,29 @@
+///n=6 is it power of 2, n=8 is it power of 2?
+///first compiler will convert this decimal to binary.
+///rule n &n-1.
+///--->n & n-1 have same bits except the rightmost set bit.
+///n=6,6->0110, posn(3210) so, set bit at 1st posn, if we flip set bit and after set bit wale no. then got n-1 as, 0110 me aage wale 01 as it is set bit se flip ho jaenga as 10->01 so, n-1=0101 =5 its true.
+///n has only 1 set bit & n-1 will have all set bit after that posn.
+
+///power of 2 => n&n-1==0, if (n&n-1!=0) its not power of 2.
+///agar n hi 0 to no process required kyuki 0 & anything =0.
+#include<bits/stdc++.h>
+using namespace std;
+bool pot(int n)
+{
+    return (n&& !(n&n-1));//(n&n-1), it means n&n-1 =1 that's why for returning true value return !(false)=true so, !(n&n-1) == n&n-1==0.
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        if(pot(n))cout<<"yes"<<endl;
+        else cout<<"no"<<endl;
+    }
+
+}
+
