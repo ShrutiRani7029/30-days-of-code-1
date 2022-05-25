@@ -1,0 +1,28 @@
+///n=n&n-1 ->power of 2 wala concept...
+///count bdhate jaenge jbtk n=n&n-1==0 na aa jae so iske liye while(n) ka loop chala denge
+///e.g., 19 -> find no. of set bits.
+///ans : first compiler convert 19 decimal to binary n ko update krega n=n&n-1 and count++ krenge tbtk when n==0 na aa jae.
+#include<bits/stdc++.h>
+using namespace std;
+
+int no_of_bit(int n)
+{
+    int count=0;
+    while(n)
+    {
+        n=n&n-1;
+        count++;
+    }
+    return count;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        cout<<no_of_bit(n)<<endl;
+    }
+}
