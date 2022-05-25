@@ -1,0 +1,26 @@
+///Check whether K-th bit is set or not , means given kth position n no. ka 1 hai ya 0 if 1 return true else false.
+///e.g., n=4, k=0. --> first compiler will convert n decimal to binary so 4->0100 posn(3210) at 0th posn =0 so it return no.
+///e.g., n=4, k=2. --> 4->0100 at 2nd posn =1 so it return yes.
+///remember get bit concept...........
+///at first given posn ko legacy denge means after converting it into binary sirf given posn pr 1 baaaki sbpe 0 for that we use left shift operator and shift posn by 1 as 1<<posn.
+///e.g., n=5, posn =2. ---> 1<<2  0001<<2 =>0100 =4.
+///then using & operator check ki calculating bit or given bit me konsa same. as (n & (1<<posn))!=0
+#include<bits/stdc++.h>
+using namespace std;
+int kbit(int n,int k)
+{
+    return ((n&(1<<k))!=0);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        if(kbit(n,k))cout<<"yes"<<endl;
+        else cout<<"no"<<endl;
+    }
+
+}
