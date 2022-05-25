@@ -1,0 +1,33 @@
+///hme sbse first means rightmost set bit ke positon btane hai. like n=12->1100 ans =3rd position., n=18->010010 ans=2nd position.
+///There are two approaches for completing this question approach1->o(logn) and approach2->o(1).
+
+/*Approach1:
+int posn=0; 
+while(n!=0)
+{
+n=n/2;//right shift
+posn++;
+if(n%2==1)// agar ye odd aya to return posn +1.
+    return posn+1;
+}
+///but it takes o(logn) so 2nd approach is more efficient-----------------
+*/
+///2nd approach
+///n=18 -> 010010 ->1's comp->101101 ->2's comp->101101+1 = 101110
+///2nd complement kyu nikala? kyuki jb sirf rightmost set bit aur uske baad ke  chor ke original n ke comparision sare reverse honge like original = 010010 , comp=1011 10
+///so that jb dono ka & kre to set bit wale posn mil jaenge.
+#include<bits/stdc++.h>
+using namespace std;
+unsigned int fun(int n)
+{
+    int a=-n;///2's complement
+    int b=n&a;///compare
+    return log2(b)+1;///finding position after getting value.
+
+}
+int main()
+{
+    int n;
+    cin>>n;
+    cout<<fun(n)<<endl;
+}
