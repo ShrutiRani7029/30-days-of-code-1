@@ -1,0 +1,47 @@
+///n=2, 2->010 it returns 2nd posn because set bit at 2nd position and it is the only set bit.
+///n=5, 5->101 it returns -1 beacuse there are more than one set bits.
+///trick or formula using concept same as power of 2, n&n-1==0 to hi sirf 1 set bit honge else 0 hoga.
+///for returning posn => (log2(n)+1)
+#include<bits/stdc++.h>
+using namespace std;
+int onlysetbit(int n)
+{
+    if(n==0)return -1;
+    if((n&n-1)==0)
+        return log2(n)+1;
+    return -1;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        cout<<onlysetbit(n)<<endl;
+    }
+}
+///or this question can be also done using find first set bit concept + power of 2 concept.
+#include<bits/stdc++.h>
+using namespace std;
+int onlysetbit(int n)
+{
+    if(n==0)return -1;
+    int a=-n;///2's complement
+    int b=n&a;///compare
+    if((n&n-1)==0)
+        return log2(b)+1;
+    return -1;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        cout<<onlysetbit(n)<<endl;
+    }
+}
